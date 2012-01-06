@@ -1,7 +1,3 @@
-class User < ActiveRecord::Base
-attr_accessible :name, :email
-end
-
 # == Schema Information
 #
 # Table name: users
@@ -12,4 +8,13 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #
+
+
+
+class User < ActiveRecord::Base
+attr_accessible :name, :email
+
+validates :name, :presence => true
+end
+
 
