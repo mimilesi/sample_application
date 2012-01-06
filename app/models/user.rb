@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+attr_accessible :name, :email
 end
+
 # == Schema Information
 #
 # Table name: users
