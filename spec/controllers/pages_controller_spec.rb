@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe PagesController do
 render_views
+#home------------------------------------------------
   describe "GET 'home'" do
     it "returns http success" do
       get 'home'
@@ -14,7 +15,7 @@ render_views
                        :content => "Ruby on Rails Tutorial Sample App | Home")
     end
   end
-
+#contact-----------------------------------------------------------
   describe "GET 'contact'" do
     it "returns http success" do
       get 'contact'
@@ -28,6 +29,7 @@ render_views
     end
   end
 
+#about-----------------------------------------------------------------------
   describe "GET 'about'" do
     it "returns http success" do
       get 'about'
@@ -38,6 +40,20 @@ render_views
      get 'about'
      response.should have_selector("title",
                        :content => "Ruby on Rails Tutorial Sample App | About")
+    end
+  end
+
+#help--------------------------------------------------------------------------------
+  describe "GET 'help'" do
+    it "should be successful" do
+      get 'help'
+      response.should be_success
+    end
+
+    it "should have the right title" do
+     get 'help'
+    response.should have_selector("title",
+                       :content => "Ruby on Rails Tutorial Sample App | Help")
     end
   end
 
