@@ -58,6 +58,28 @@ describe SessionsController do
         response.should redirect_to(user_path(@user))
       end
     end
+
+    describe "failure" do
+
+     before (:each) do
+       @attr ={:email => "", :password => ""}
+     end
+
+     it "should re-ender the new page" do
+       post :create, :session => @attr
+       response.should render_template('new')
+     end
+  
+     it "should have a title" do
+       post :create, :session => @attr
+       response.should have_selector('title', :content => "Sign in")
+     end
+
+     it "should have an error message" do
+        post :create, :sessions => @attr
+        flash.now[:error].should =~ /invalid/i
+     end
+    end
   end
 end
 
