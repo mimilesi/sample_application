@@ -50,6 +50,10 @@ before_filter :authenticate, :only => [:edit, :update]
     @title = @user.name
   end
 
+  def index
+    @title = "All users"
+    @users = User.paginate(:page => params[:page])
+  end
 
 
 private
